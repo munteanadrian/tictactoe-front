@@ -62,7 +62,7 @@ export default function Game({ trigger }) {
   }, [trigger]);
 
   const restartGame = async () => {
-    const response = await axios.get("https://164.90.223.91:8080/restart");
+    const response = await axios.get("http://164.90.223.91:8080/restart");
     setBoard(response.data);
     setGameOver(false);
     setOccupied(false);
@@ -73,7 +73,7 @@ export default function Game({ trigger }) {
     let response = { code: -1, player: "", message: "" };
 
     await axios
-      .post("https://164.90.223.91:8080/", { x: row, y: col })
+      .post("http://164.90.223.91:8080/", { x: row, y: col })
       .then((res) => {
         response = res.data;
 
